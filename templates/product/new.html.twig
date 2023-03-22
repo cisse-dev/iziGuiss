@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Product
+{% endblock %}
+
+{% block body %}
+	<h1>Créer un nouveau produit</h1>
+	<div class="container-fluid m-auto">
+		<div class="row">
+			<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+				{{ form_start(form) }}
+				{{ form_row(form.title, {
+                                'label': 'title'
+                            })}}
+				{{ form_row(form.description, {
+                                'label': 'description'
+                            })}}
+				{{ form_row(form.price, {
+                                'label': 'price'
+                            })}}
+				{{ form_row(form.picture, {
+                                'label': 'picture'
+                            })}}
+				{{ include('product/_form.html.twig') }}
+				<a href="{{ path('app_product_index') }}">Retour sur la liste des Produits</a>
+				{{ form_end(form) }}
+			</div>
+		</div>
+	</div>
+{% endblock %}

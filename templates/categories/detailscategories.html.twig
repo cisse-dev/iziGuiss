@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	{{ parent()}}
+	| Modifier
+	{{categories.nom}}
+{% endblock %}
+
+{% block h1 %}
+	Modifier
+	{{categories.nom}}
+{% endblock %}
+
+{% block body %}
+
+	<div class="">
+		<div class="row justify-content-end">
+			<a href="{{ path('app_categories') }}" class="btn btn-info p-2 col-md-3">Retour</a>
+		</div>
+
+		<div class="card" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{categories.nom}}</h5>
+			</div>
+		</div>
+
+	</div>
+{% endblock %}

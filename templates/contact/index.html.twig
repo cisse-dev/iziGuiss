@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Page de contact {% endblock %}
+
+{% block body %}
+  <h1>Formulaire de contact</h1>
+  {% for notification in app.flashes('success') %}
+        <div class="alert alert-succes col-md-6 mx-auto text-center disparition">
+             {{ notification }}
+             </div>
+        {% endfor %}
+<div class="container-fluid m-auto">
+       
+		<div class="row">
+			<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+
+				{{ form_start(formContact) }}
+				{{ form_row(formContact.firstname, {
+                                'label': 'Nom'
+                            })}}
+				{{ form_row(formContact.lastname, {
+                                'label': 'Prénom'
+                            })}}
+                            	{{ form_row(formContact.email, {
+                                'label': 'Email'
+                            })}}
+				{{ form_row(formContact.subject, {
+                                'label': 'Sujet'
+                            })}}
+                            	{{ form_row(formContact.message, {
+                                'label': 'Message'
+                            })}}
+				{{ form_end(formContact) }}
+			</div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<section class="container">
+
+		<div class="d-flex justify-content-center">
+			<img class="" src="{{ product.picture }}" alt="" width="500">
+		</div>
+		<p>{{ product.title }}</p>
+		<p>{{ product.price }}
+			£</p>
+		<p>{{ product.description }}</p>
+		<a href="{{ path('app_main') }}" class="btn btn-secondary">Retour</a>
+		<i class="bi bi-cart-plus"></i>
+	</a>
+
+</section>{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CartController!
+{% endblock %}
+
+{% block body %}
+
+
+	{#### <pre>
+						{{ dump(cart) }}
+					</pre> ########}
+
+
+	{#### Card ########}
+
+		{% if cart|length > 0 %}
+		{## Lien qui vide intégralement le panier ##}
+			<a href="{{ path('delete_all_cart') }} " class=" btn btn-lg btn-primary"> <i class="bi bi-cart-plus"></i>Vider mon panier</a>
+		{% set total = null %}
+		{% for value in cart %}
+			{## Calcul total du price d'un product ( si plusieurs articles ) ** ##}
+			{% set total = total + (value.product.price * value.quantity) %}
+			<div class="col-4 mt-4 card" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title">{{value.product.title}}</h5>
+					<p class="card-text">{{value.product.description}}</p>
+					<p class="card-text"><img src=" {{value.product.picture}}" witdh="300" height="300" alt=""></p>
+					<p class="card-text">
+						Quantité :
+						{{value.quantity}}.</p>
+					{## ** Total price du product ##}
+					<p class="card-text">price :
+						{{ (value.product.price * value.quantity)|number_format(2,',', '.')}}
+						euros.</p>
+					{## Liens : décrémenter, ajouter, supprimer ##}
+					<div class="ms-3 mt-3">
+						<a href="{{ path('decrease_cart', {'id': value.product.id }) }}"><img src="{{ asset('images/moins.png') }}" alt="" class="me-2" style="width:20px"></a>
+						<a href="{{ path('post_cart', {'id': value.product.id }) }}"><img src="{{ asset('images/plus.png') }}" alt="" class="me-2" style="width:20px"></a>
+						<a href="{{ path('delete_cart', {'id': value.product.id }) }}"><img src="{{ asset('images/poubelle.png') }}" alt="" class="me-2" style="width:20px"></a>
+					</div>
+				</div>
+			</div>
+
+		{% endfor %}
+
+		{## Nombre total de produit dans le panier ##}
+		Nombre de produit :
+		{{ cart|length }}
+
+		{## Total de tout les product du panier | méthode qui rajoute la virgule à la place du point sur le price##}
+		<p class="card-text">price total :
+			{{ (total)|number_format(2,',', '.')}}
+			euros.</p>
+
+		{#### fin Card ########}
+	{% else %}
+		{## Redirection vers la page home si le panier est vide ##}
+		<button href="{{ path('app_main') }}">VOTRE PANIER EST VIDE</button>
+	{% endif %}
+	<div class="text-center">
+		<a href=" {{ path('app_stripe')  }} " class=" btn btn-lg btn-primary">
+			<i class="bi bi-cart-plus"></i>Valider Votre Panier</a>
+	</div>
+{% endblock %}
