@@ -19,6 +19,7 @@
 body{
     font-family: 'Poppins', sans-serif;
     font-family: 'Roboto', sans-serif;
+    
 }
 nav{
     flex : 1;
@@ -36,13 +37,13 @@ nav ul li a{
     text-decoration: none;
     color: #555;
 }
-.container{
+/* .container{
     max-width: 1300px;
     margin: 20px auto;
     padding-left: 25px;
     padding-right: 25px;
 
-}
+} */
  h1{ 
      display: flex;
      justify-content: center;
@@ -50,8 +51,9 @@ nav ul li a{
  .header-section{
      margin-top: -20px;
      background: radial-gradient(#fff,#396497);
+     
  }
-    
+
  
    /* ----------------------------------foooter -----------------------------------*/
  footer{
@@ -86,3 +88,54 @@ footer img{
     margin-top: 1rem;
     
 }
+.btn btn-success{
+    height: 30px;
+    width: 30p;
+}
+.btn-sm{
+    height: 30px;
+    width: 30p;
+}
+.btn-xs{
+    height: 30px;
+    width: 30p;
+}
+
+
+
+main {
+    min-height: calc(100vh - 208px - 320px);
+    padding: 10px;
+}
+
+.p-2 {
+    padding: 4rem!important;
+}
+section .row{
+    flex:1;
+    min-width: 50%;
+}
+
+@media all and (min-width: 600px) {
+
+     main{
+
+        width: 100%;
+     }
+
+
+}
+@media all and (max-width: 360px){
+  
+    /*  Header */
+
+    .header-section{ text-align: center;}
+    header { padding: 30px 15px; height: 70px; }
+
+    /*  footer */
+    footer{ text-align: center;}
+    
+
+
+}
+    

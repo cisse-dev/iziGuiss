@@ -1,7 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}Hello MainController!
+{% endblock %}
 
 {% block body %}
+	<section class='row '>
+		{% for value in products  %}
 
+
+			<div class="col-4 mt-4">
+				<div class="border border-dark rounded p-3 clearfix">
+					<img src="{{ value.picture }}" alt="picture product" width="360" height="400">
+					<p>{{ value.description}}</p>
+					<p>{{ value.price}}
+						£</p>
+					<a href="{{ path('post_cart', {'id': value.id }) }}" class="btn btn-lg btn-primary">
+						<i class="bi bi-cart-plus"></i>
+						Ajouter</a>
+					<a href="{{ path('details', {'id': value.id }) }}" class="btn btn-secondary">
+						<i class="bi bi-cart-plus"></i>Détails</a>
+				</div>
+			</div>
+		{% endfor %}
+	</section>
 {% endblock %}

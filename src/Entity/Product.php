@@ -23,8 +23,6 @@ class Product
     #[ORM\Column]
     private ?int $price = null;
 
-    #[ORM\Column]
-    private ?int $categories = null;
 
     #[ORM\Column(length: 255)]
     private ?string $picture = null;
@@ -32,17 +30,7 @@ class Product
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $created_at = null;
 
-    #[ORM\ManyToOne(inversedBy: 'id_product')]
-    private ?Cart $cart = null;
-
-    #[ORM\ManyToOne(inversedBy: 'id_products')]
-    private ?Order $commande = null;
-
-    #[ORM\ManyToOne(inversedBy: 'product_id')]
-    private ?Cart $Panier = null;
-
-    #[ORM\ManyToOne(inversedBy: 'id_product')]
-    private ?Panier $panier = null;
+   
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     private ?Categories $FK_CATEGORY = null;
@@ -88,18 +76,6 @@ class Product
         return $this;
     }
 
-    public function getCategories(): ?int
-    {
-        return $this->categories;
-    }
-
-    public function setCategories(int $categories): self
-    {
-        $this->categories = $categories;
-
-        return $this;
-    }
-
     public function getPicture(): ?string
     {
         return $this->picture;
@@ -120,42 +96,6 @@ class Product
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
-
-        return $this;
-    }
-
-    public function getCart(): ?Cart
-    {
-        return $this->cart;
-    }
-
-    public function setCart(?Cart $cart): self
-    {
-        $this->cart = $cart;
-
-        return $this;
-    }
-
-    public function getCommande(): ?Order
-    {
-        return $this->commande;
-    }
-
-    public function setCommande(?Order $commande): self
-    {
-        $this->commande = $commande;
-
-        return $this;
-    }
-
-    public function getPanier(): ?Cart
-    {
-        return $this->Panier;
-    }
-
-    public function setPanier(?Cart $Panier): self
-    {
-        $this->Panier = $Panier;
 
         return $this;
     }

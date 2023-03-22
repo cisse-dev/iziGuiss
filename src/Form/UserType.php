@@ -18,61 +18,68 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            
-    ->add('lastname',TextType::class,[
-        'attr' => [
-            'class' => 'form-control'
-        ]
-      
-    ])
-        ->add('firstname', TextType::class,[
-            'attr' => [
-                'class' => 'form-control'
-            ]
 
-        ])
-        ->add('email', EmailType::class,[
-            'attr' => [
-                'class' => 'form-control'
-            ]
-        ])
-            ->add('adress', TextType::class,[
+            ->add('lastname', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ]
 
             ])
-            ->add('zipcode', TextType::class ,[
+            ->add('firstname', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ]
 
             ])
-            ->add('phone', TextType::class ,[
+            ->add('email', EmailType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+            ->add('adress', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ]
 
             ])
-           
+            ->add('zipcode', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+
+            ])
+            ->add('phone', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+
+            ])
+
 
             ->add('password', RepeatedType::class, [
-                
-                'type' => PasswordType::class,
-                
-                'first_options' => ['label' => 'Password', 
-                'attr' => [
-                    'class' => 'form-control'
-                ],
-            ],
 
-                'second_options' => ['label' => 'Confirm Password', 
-                'attr' => [
-                    'class' => 'form-control'
+                'type' => PasswordType::class,
+
+                'first_options' => [
+                    'label' => 'Mot de passe',
+                    'attr' => [
+                        'class' => 'form-control'
+                    ],
                 ],
+
+                'second_options' => [
+                    'label' => 'Confirmez le mot de Passe',
+                    'attr' => [
+                        'class' => 'form-control'
+                    ],
                 ]
             ])
-            ->add('Connexion', SubmitType::class)
+         ->add('Connexion', SubmitType::class,['attr' => [
+                'class' => 'btn btn-lg btn-primary mt-3',
+
+             ],
+
+             ])
         ;
     }
 

@@ -1,11 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription !{% endblock %}
-
+{% block title %}Inscription !
+{% endblock %}
 {% block body %}
-<div class='container'>
+	<h1>M'inscrire</h1>
+	{% for notification in app.flashes('success') %}
+		<div class="alert alert-succes col-md-6 mx-auto text-center disparition">
+			{{ notification }}
+		</div>
+	{% endfor %}
 
-{{form(formUser)}}
+	<div class="container-fluid m-auto">
 
-</div>
+		<div class="row">
+			<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+
+				{{ form_start(formUser) }}
+				{{ form_row(formUser.firstname, {
+                                'label': 'Nom'
+                            })}}
+				{{ form_row(formUser.lastname, {
+                                'label': 'Prénom'
+                            })}}
+				{{ form_row(formUser.zipcode, {
+                            'label': 'code Postale '
+                        })}}
+				{{ form_row(formUser.email, {
+                            'label': 'email'
+                        })}}
+				{{ form_row(formUser.adress, {
+                            'label': 'adresse'
+                        })}}
+				{{ form_row(formUser.phone, {
+                            'label': 'telephone'
+                        })}}
+
+				{{ form_end(formUser) }}
+			</div>
+		</div>
+
+	</div>
 {% endblock %}

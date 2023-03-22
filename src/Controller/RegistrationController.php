@@ -40,12 +40,21 @@ class RegistrationController extends AbstractController
             // Save
             $manager->persist($user);
             $manager->flush();
+            $this->addFlash(
+                'success',
+                'Vous  etes connecté avec succés !'
+            );
 
             return $this->redirectToRoute('app_login');
+
         }
-        
+
         return $this->render('registration/index.html.twig', [
             'formUser' => $form->createView()
         ]);
+
     }
+
+
+
 }

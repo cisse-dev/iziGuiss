@@ -3,14 +3,40 @@
         <header class="navbar">
           <div class="logo">
             <img src="{{ asset("images/logo.png") }}" alt ="logo" />
-          </div>
+      </div>
           <nav>
             <ul>
-              <li><a href="">Accueil</a></li>
-              <li><a href="">Produits</a></li>
-              <li><a href="">Apropos</a></li>
-              <li><a href="">Contact</a></li>
+              <li><a href="{# {{path('app_order_index')}} #}"></a></li> 
+              {% if app.user %}
+
+					{% if app.user.roles[0] == 'ROLE_ADMIN' %}
+							<ul>
+								<li>
+									<a  href="{{path('app_categories')}}">Gestion des Categories</a>
+								</li>
+								<li>
+									<a  href="{{path('app_product_index')}}">Gestion des  Produits</a>
+								</li>
+							</ul>
+						</li>
+					{% endif %}
+				{% endif %}
+                    </li>
+               </li>
             </ul>
+          </nav>
+          <nav>
+             <ul>
+                 <li><a href="{{path('app_main')}}">Accueil</a></li>
+                  {% if app.user %}
+                  <li><a href="{{path('get_cart')}}">Paniers</a></li>
+                  <li><a href="#">Mon compte</a></li>
+                  <li><a href="{{path('app_logout')}}">Me déconnecter</a></li>
+                {% else %}
+                  <li><a href="{{path('registration')}}">M'inscrire</a></li>
+                  <li><a href="{{path('app_login')}}">Me connecter</a></li>
+            </ul>
+              {% endif %}
           </nav>
         </header>
         <div class="haut">
