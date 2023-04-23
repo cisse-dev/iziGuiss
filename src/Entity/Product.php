@@ -80,7 +80,11 @@ class Product
     {
         return $this->picture;
     }
-
+    public function __construct()
+    {
+        $this->created_at = new \DateTime();
+    }
+    
     public function setPicture(string $picture): self
     {
         $this->picture = $picture;
@@ -95,9 +99,9 @@ class Product
 
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
-        $this->created_at = $created_at;
+        $this->created_at = $created_at ?: new \DateTime();
 
-        return $this;
+    return $this;
     }
 
     public function getFKCATEGORY(): ?Categories

@@ -1,71 +1,69 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&family=Roboto:ital@1&display=swap');
 
+.logo img{
+    width: 100%;
+    max-width: 150px;
+    height:auto;
+}
+
 *{
     margin: 0;
     padding: 0;
-    
-
 }
+
 .navbar{
     display: flex;
     align-items: center;
     padding: 20px;
+}
 
-}
 .logo img{
-    width: 150px;
-    height:100px;
+    width: 100%;
+    max-width: 150px;
+    height:auto;
 }
+
 body{
     font-family: 'Poppins', sans-serif;
     font-family: 'Roboto', sans-serif;
-    
 }
+
 nav{
     flex : 1;
     text-align: right;
 }
+
 nav ul{
     display: inline-block;
     list-style: none;
 }
+
 nav ul li{
     display: inline-block;
     margin-right: 20px;
 }
+
 nav ul li a{
     text-decoration: none;
     color: #555;
 }
-/* .container{
-    max-width: 1300px;
-    margin: 20px auto;
-    padding-left: 25px;
-    padding-right: 25px;
 
-} */
- h1{ 
-     display: flex;
-     justify-content: center;
- }
- .header-section{
-     margin-top: -20px;
-     background: radial-gradient(#fff,#396497);
-     
- }
+.header-section{
+    margin-top: -8px;
+    background: radial-gradient(#fff,#396497);
+}
 
- 
-   /* ----------------------------------foooter -----------------------------------*/
- footer{
-
+footer{
     background-color: #1e2020;
     display: flex;
     justify-content: space-around;
     height: 20rem;
+    margin: 0.5rem;
+    text-align: center;
+    margin-top: 0.5rem;
 }
 
 footer h3{
-
     padding: 0.5rem;
     color: rgb(255, 255, 255);
     font-size: 25px;
@@ -73,7 +71,6 @@ footer h3{
 }
 
 footer p{
-
     padding: 0.5rem;
     font-size: 20px;
     color: white;
@@ -81,61 +78,58 @@ footer p{
 }
 
 footer img{
-
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
     margin-top: 1rem;
-    
 }
+
 .btn btn-success{
     height: 30px;
     width: 30p;
 }
+
 .btn-sm{
     height: 30px;
     width: 30p;
 }
+
 .btn-xs{
     height: 30px;
     width: 30p;
 }
-
-
-
 main {
     min-height: calc(100vh - 208px - 320px);
     padding: 10px;
 }
-
-.p-2 {
-    padding: 4rem!important;
-}
-section .row{
-    flex:1;
-    min-width: 50%;
+h1{
+    justify-content: center;
+    display: flex;
 }
 
-@media all and (min-width: 600px) {
-
-     main{
-
-        width: 100%;
-     }
 
 
-}
-@media all and (max-width: 360px){
+
+
+@media screen and (max-width: 768px) {
+    .navbar {
+      padding: 10px;
+    }
+    
+    nav ul li {
+      margin-right: 10px;
+    }
+   
+    
+    footer h3, footer p {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    
+    footer img {
+      margin: 0.5rem;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+  }
   
-    /*  Header */
-
-    .header-section{ text-align: center;}
-    header { padding: 30px 15px; height: 70px; }
-
-    /*  footer */
-    footer{ text-align: center;}
-    
-
-
-}
-    

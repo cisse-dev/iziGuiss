@@ -32,30 +32,36 @@ class StripeController extends AbstractController
         ]);
     }
 
-    #[Route('/stripe/create-charge', name: 'app_stripe_charge', methods: ['POST'])]
+    #[Route('/stripe/create-charge', name: 'app_stripe_charge')]
     public function createCharge(Request $request, CartService $cartService)
     {
-
         Stripe\Stripe::setApiKey($_ENV["STRIPE_SECRET"]);
-       
+        
+        // Récupération du montant total du panier
         $cartTotal = $cartService->getCartTotal();
-        Stripe\Charge::create([
-            "amount" =>  $cartTotal * 100,
-            // Montant du paiement en cents
-            "currency" => "eur",
-            // Devise
-            "source" => $request->request->get('stripeToken'),
-            // Token de la carte bancaire
-            "description" => " Payment Test", // Description du paie
+        
+        // Création de la session Stripe avec le montant total du panier
+        $checkout_session = \Stripe\Checkout\Session::create([
+            'line_items' => [[
+                'price_data' => [
+                    'currency' => 'eur',
+                    'unit_amount' => $cartTotal * 100, // Le montant est en cents
+                    'product_data' => [
+                        'name' => 'Produits dans votre panier',
+                    ],
+                ],
+                'quantity' => 1,
+            ]],
+            'mode' => 'payment',
+            'success_url' => 'https://127.0.0.1:8000/success.html',
+            'cancel_url' => 'http://127.0.0.1:8000/mon-panier',
         ]);
-
-        // Ajout d'un message flash pour indiquer que le paiement a été effectué avec succès
         $this->addFlash(
             'success',
             'Payment Successful!'
         );
-
-        // Redirection vers la page principale après le paiement
-        return $this->redirectToRoute('app_stripe', [], Response::HTTP_SEE_OTHER);
+        
+        // Redirection vers la page de paiement Stripe
+        return $this->redirect($checkout_session->url);
     }
-}
+}    

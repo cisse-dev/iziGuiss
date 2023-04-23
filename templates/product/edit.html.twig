@@ -1,14 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Product{% endblock %}
+{% block title %}
+Modifier le produit{% endblock %}
 
 {% block body %}
-    <h1>Edit Product</h1>
+       <div class="container-fluid m-auto">
+		<div class="row">
+			<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+    
+    <h1>
+Modifier le produit</h1>
 
     {{ include('product/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_product_index') }}">back to list</a>
+    <a href="{{ path('app_product_index') }}"class="btn btn-lg btn-primary mb-3">
+						<i class="bi bi-cart-plus"></i>Retour à la liste</a>
 
     {{ include('product/_delete_form.html.twig') }}
-    
+    	</div>
+		</div>
+	</div> 
 {% endblock %}

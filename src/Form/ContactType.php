@@ -54,17 +54,8 @@ class ContactType extends AbstractType
                 'attr' => [
                     'class' => 'btn btn-lg btn-primary mt-3',
 
-                ],
+                ]
 
-            ])
-
-        ;
-    }
-
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        $resolver->setDefaults([
-            'data_class' => Contact::class,
         ]);
     }
 }

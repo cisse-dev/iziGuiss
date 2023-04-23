@@ -21,6 +21,8 @@
 				{{ form_row(form.picture, {
                                 'label': 'picture'
                             })}}
+							{{ form_row(form.fk_category, {'
+							label': 'Category'}) }}
 				{{ include('product/_form.html.twig') }}
 				<a href="{{ path('app_product_index') }}">Retour sur la liste des Produits</a>
 				{{ form_end(form) }}
@@ -28,3 +30,5 @@
 		</div>
 	</div>
 {% endblock %}
+
+

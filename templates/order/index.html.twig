@@ -3,6 +3,26 @@
 {% block title %}Order index{% endblock %}
 
 {% block body %}
-    
-    
+    <h1>Liste des commandes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Numéro de commande</th>
+                <th>Date de commande</th>
+                <th>Montant total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.createdAt|date('d/m/Y H:i') }}</td>
+                    <td>{{ order.getPrice }} €</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
+
+
