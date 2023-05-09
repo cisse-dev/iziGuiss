@@ -6,7 +6,7 @@
       </div>
           <nav>
             <ul>
-              <li><a href="{# {{path('app_order_index')}} #}"></a></li> 
+              <li><a href="{{path('app_order_index') }} "></a></li> 
               {% if app.user %}
 
 					{% if app.user.roles[0] == 'ROLE_ADMIN' %}
@@ -31,9 +31,9 @@
           <nav>
              <ul>
                  <li><a href="{{path('app_main')}}">Accueil</a></li>
+                  <li><a href="#">Mon compte</a></li>
                   {% if app.user %}
                   <li><a href="{{path('get_cart')}}">Paniers</a></li>
-                  <li><a href="#">Mon compte</a></li>
                   <li><a href="{{path('app_logout')}}">Me déconnecter</a></li>
                 {% else %}
                   <li><a href="{{path('registration')}}">M'inscrire</a></li>

@@ -53,10 +53,8 @@ class CartService
                 }
             }
         }
-
         return $cartData;
     }
-
     public function getCartTotal()
     {
         $cart = $this->getSession()->get('cart');

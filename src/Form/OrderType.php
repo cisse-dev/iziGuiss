@@ -17,7 +17,6 @@ class OrderType extends AbstractType
             ->add('id_user')
         ;
     }
-
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

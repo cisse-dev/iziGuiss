@@ -29,9 +29,13 @@ class Order
     #[ORM\Column]
     private ?int $price = null;
 
+    #[ORM\ManyToMany(targetEntity: Product::class)]
+    private Collection $id_product_id;
+
     public function __construct()
     {
         $this->id_products = new ArrayCollection();
+        $this->id_product_id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -101,6 +105,30 @@ class Order
     public function setPrice(int $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Product>
+     */
+    public function getIdProductId(): Collection
+    {
+        return $this->id_product_id;
+    }
+
+    public function addIdProductId(Product $idProductId): self
+    {
+        if (!$this->id_product_id->contains($idProductId)) {
+            $this->id_product_id->add($idProductId);
+        }
+
+        return $this;
+    }
+
+    public function removeIdProductId(Product $idProductId): self
+    {
+        $this->id_product_id->removeElement($idProductId);
 
         return $this;
     }

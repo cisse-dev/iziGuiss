@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Thank you for your purchase</title>
-    						{% for message in app.flashes('success') %}
-
 </head>
 <body>
-    <h1>Thank you for your purchase!</h1>
+{% for message in app.flashes('successs') %}
+    <p>{{ message }}</p>
+{% endfor %}
     <p>Your payment has been processed successfully.</p>
-    <li><a href="{{path('controller_name')}}">Accueil</a></li>
+    <p><a href="{{ path('app_main') }}">Accueil</a></p>
 </body>
 </html>

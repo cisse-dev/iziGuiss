@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Order;
 use App\Service\CartService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Stripe;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class StripeController extends AbstractController
 {
@@ -53,14 +55,10 @@ class StripeController extends AbstractController
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
-            'success_url' => 'https://127.0.0.1:8000/success.html',
-            'cancel_url' => 'http://127.0.0.1:8000/mon-panier',
+            'success_url' => $this->generateUrl('app_success', [], UrlGeneratorInterface::ABSOLUTE_URL),
+            //'cancel_url' => $this->generateUrl('app_cancel', [], UrlGeneratorInterface::ABSOLUTE_URL),
         ]);
-        $this->addFlash(
-            'success',
-            'Payment Successful!'
-        );
-        
+        $order = new Order();
         // Redirection vers la page de paiement Stripe
         return $this->redirect($checkout_session->url);
     }
