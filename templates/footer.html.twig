@@ -1,40 +1,38 @@
 <footer>
-	<div>
-		<p>LIENS UTILES
-			<br>
-		</p>
-		<p><a href="{{path('rgpd')}}">Conditions générales de vente</a></p>
-	    <p><a href="">Conditions générales d’utilisation</a></p>
-		<p><a href="">Politique de confidentialité</a></p>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <p>LIENS UTILES</p>
+                <p><a href="{{ path('rgpd') }}">Conditions générales de vente</a></p>
+                <p><a href="">Conditions générales d’utilisation</a></p>
+            </div>
 
-	<div>
-		<p>Service  Client
-			<br>
-        </p>
-		<p><a href="">Politique de retour et réclamation</a></p>
-		<p><a href="">Centre des réclamations</a></p>
-         <p><a href="{{path('app_contact')}}">Contactez-nous</a>
-				<br><br>
-			</p>
-		</div>
+            <div class="col-md-3 col-sm-6">
+                <p>Service Client</p>
+                <p><a href="">Politique de retour et réclamation</a></p>
+                <p><a href="">Centre des réclamations</a></p>
+                <p><a href="{{ path('app_contact') }}">Contactez-nous</a></p>
+            </div>
 
-		<div>
-			<p>PAIEMENT ET LIVRAISON</p>
-			<p>Méthodes de paiement<br>
-            Livraison</p>
-		</div>
+            <div class="col-md-3 col-sm-6">
+                <p>PAIEMENT ET LIVRAISON</p>
+                <p>Méthodes de paiement</p>
+                <p>Livraison</p>
+            </div>
 
-		<div>
-			<p>Retrouvez-nous sur nos <br>
-			 différents réseaux</p>
-			<p>Suivez nos actualités</p>
-		</div>
-		<div>
-			<a href="https://www.instagram.com/iziguiss/" target="_blank"><img class="img" src="{{ asset('images/instagram.png') }}" alt="" height="35">
-			<a href="https://www.facebook.com/yankoba.cisse.37" target="_blank"><img class="img" src="{{ asset('images/facebook.png') }}" alt="" height="35">
-			<a href="https://www.linkedin.com/feed/" target="_blank"><img class="img" src="{{ asset('images/linkedin.png') }}" alt="" height="35">
-            <a href="https://www.tiktok.com/foryou" target="_blank"><img class="img" src="{{ asset('images/tiktok.svg') }}" alt="" height="35">
-		</div>
-	</footer>
-
+            <div class="col-md-3 col-sm-6">
+                <p>Retrouvez-nous sur nos différents réseaux</p>
+                <p>Suivez nos actualités</p>
+                <div>
+                    <a href="https://www.instagram.com/iziguiss/" target="_blank">
+                        <img class="img" src="{{ asset('images/instagram.png') }}" alt="" height="35">
+                    </a>
+                    <a href="https://www.linkedin.com/feed/" target="_blank">
+                        <img class="img" src="{{ asset('images/linkedin.png') }}" alt="" height="35">
+                    </a>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

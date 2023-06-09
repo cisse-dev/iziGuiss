@@ -17,7 +17,7 @@
 
         {% if cart|length > 0 %}
         {## Lien qui vide intégralement le panier ##}
-            <a href="{{ path('delete_all_cart') }} " class=" btn btn-lg btn-primary"> <i class="bi bi-cart-plus"></i>Vider mon panier</a>
+            <a href="{{ path('delete_all_cart') }} " class=" btn btn-lg btn-outline-danger"> <i class="bi bi-cart-plus"></i>Vider mon panier</a>
         {% set total = null %}
         {% for value in cart %}
             {## Calcul total du price d'un product ( si plusieurs articles ) ** ##}

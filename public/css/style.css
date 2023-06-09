@@ -45,19 +45,18 @@ nav ul li{
 
 nav ul li a{
     text-decoration: none;
-    color: #555;
+    color: rgb(20, 19, 19);
 }
 
 .header-section{
     margin-top: -8px;
-    background: radial-gradient(#fff,#396497);
+    background: radial-gradient(rgb(238, 233, 233),#396497);
 }
 
 footer{
     background-color: #1e2020;
     display: flex;
     justify-content: space-around;
-    height: 20rem;
     margin: 0.5rem;
     text-align: center;
     margin-top: 0.5rem;
@@ -98,10 +97,12 @@ footer img{
     height: 30px;
     width: 30p;
 }
+
 main {
     min-height: calc(100vh - 208px - 320px);
     padding: 10px;
 }
+
 h1{
     justify-content: center;
     display: flex;
@@ -109,23 +110,31 @@ h1{
 
 @media screen and (max-width: 768px) {
     .navbar {
-      padding: 10px;
+        padding: 10px;
     }
     
     nav ul li {
-      margin-right: 10px;
+        margin-right: 10px;
     }
-   
+    
+    footer {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
     
     footer h3, footer p {
-      text-align: center;
-      margin-top: 0.5rem;
+        text-align: center;
+        margin-top: 0.5rem;
     }
     
     footer img {
-      margin: 0.5rem;
-      text-align: center;
-      margin-top: 0.5rem;
+        margin: 0.5rem;
+        text-align: center;
+        margin-top: 0.5rem;
     }
-  }
-  
+    .reseaux{
+        display: flex;
+    }
+}
